@@ -5,13 +5,19 @@
     <navbar />
     <navbar2/>
 </div>
-    <div class="container mt-4">
+    <div class="container-fluid mt-4">
       <child />
       
     </div>
   </div>
 </template>
-
+<style scoped>
+@Media (min-width: 1900px) {
+  .container {
+  max-width: 90%;
+  } 
+}
+</style>
 <script>
 import Navbar from '~/components/Navbar'
 import Navbar2 from '~/components/Navbar2'

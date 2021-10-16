@@ -10,7 +10,7 @@
                     <router-link to="/consumer" :class=" this.$route.path == '/consumer' ?  'nav-link active' : 'nav-link'"   id="home" ><i class="fe fe-home"></i> Home</router-link>
                   </li>
                    <li class="nav-item ">
-                    <router-link to="/consumer/kuisioner"  :class=" this.$route.path == '/consumer/kuisioner' ?  'nav-link active' : 'nav-link'"  id="kuisioner" ><i class="fe fe-check-square"></i>Kuisioner</router-link>
+                    <router-link to="/consumer/kuisioner"  :class=" this.$route.path == '/consumer/asd' ?  'nav-link active' : 'nav-link'"  id="kuisioner" ><i class="fe fe-check-square"></i>Kuisioner</router-link>
                   </li>
                   <li class="nav-item dropdown">
                     <router-link to="/consumer/new-feed"  :class=" this.$route.path == '/consumer/new-feed' ?  'nav-link active' : 'nav-link'"  id="newFeed" ><i class="fe fe-file"></i>Pengumuman</router-link>
