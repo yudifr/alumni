@@ -33,7 +33,9 @@ Route::group(['middleware' => 'auth:api'], function () {
 
 Route::group(['middleware' => 'guest:api'], function () {
     Route::post('login', [LoginController::class, 'login']);
-    Route::post('register', [RegisterController::class, 'register']);
+    Route::post('register/alumni', [RegisterController::class, 'registerAlumni']);
+    Route::post('register/consumer', [RegisterController::class, 'register']);
+    Route::post('register/institution', [RegisterController::class, 'registerInstitution']);
 
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);
     Route::post('password/reset', [ResetPasswordController::class, 'reset']);
