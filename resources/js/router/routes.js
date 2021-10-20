@@ -30,6 +30,14 @@ export default [
 
     ]
 },
+{ path: '/alumni', name: 'alumni', 
+component: page('home.vue'),
+children: [
+  {path:'',name:'alumni.data',component:page('alumni/feed.vue')},
+  {path:'kuisioner',name:'alumni.kuisioner',component:page('alumni/kuisioner.vue')},
+
+]
+},
   {
     path: '/settings',
     component: page('settings/index.vue'),

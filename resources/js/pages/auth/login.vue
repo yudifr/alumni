@@ -88,20 +88,16 @@ export default {
       })
 
       // Fetch the user.
-      await this.$store.dispatch('auth/fetchUser')
+     const user = await this.$store.dispatch('auth/fetchUser')
 
       // Redirect home.
-      this.redirect()
+      this.redirect(user)
     },
 
-    redirect () {
-      const intendedUrl = Cookies.get('intended_url')
-
-      if (intendedUrl) {
-        Cookies.remove('intended_url')
-        this.$router.push({ path: intendedUrl })
-      } else {
-        this.$router.push({ name: 'home' })
+    redirect (user) {
+      console.log(user)
+      if (user.role == 'consumer') {
+        this.$router.push({ name: 'consumer.data' })
       }
     }
   }

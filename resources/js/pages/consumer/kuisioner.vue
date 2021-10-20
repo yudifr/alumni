@@ -45,7 +45,7 @@
                                     <textarea class="form-control" required = "" v-model="consumer.perbaikan" rows="5" id="perbaikan"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-12  col-form-label" for="perbaikan">Berikan saran bagi peningkatan kualitas lulusan Program Studi kami supaya lebih dekat dengan kebutuhan/tuntutan dunia kerja.</label>
+                                    <label class="col-sm-12  col-form-label" for="perbaikan">Berikan saran secara umum bagi peningkatan kualitas lulusan Program Studi  supaya lebih dekat dengan kebutuhan/tuntutan dunia kerja.</label>
                                     <label class="ml-2 col-sm-12  col-form-label" for="perbaikan">a. Fasilitas/Laboratorium:</label>
                                     <textarea class="form-control" required = "" v-model="consumer.fasilitas" rows="5" ></textarea>
                                     <label class="ml-2 col-sm-12  col-form-label" for="perbaikan">b. Kualitas Dosen:</label>
