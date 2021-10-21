@@ -3,7 +3,6 @@
     <div v-if="user">
 
     <navbar />
-    <navbar2/>
 </div>
     <div class="container-fluid mt-4">
       <child />
@@ -20,7 +19,6 @@
 </style>
 <script>
 import Navbar from '~/components/Navbar'
-import Navbar2 from '~/components/Navbar2'
 import { mapGetters } from 'vuex'
 
 export default {
@@ -30,7 +28,6 @@ computed: mapGetters({
   }),
   components: {
     Navbar,
-    Navbar2,
   }
 }
 </script>

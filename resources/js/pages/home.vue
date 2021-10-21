@@ -1,5 +1,5 @@
 <template>
-  <card :title="$t('home')">
+  <card>
       <router-view>
       
     </router-view>

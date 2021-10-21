@@ -58,7 +58,11 @@
             </form>
           </div>
         </div>
-     
+     				
+<!-- Kedisplinan	
+Kejujuran	
+Motivasi kerja	
+Etos kerja -->
   
 </template>
 <style scoped>

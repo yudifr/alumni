@@ -48,6 +48,6 @@ Route::group(['middleware' => 'guest:api'], function () {
     Route::get('oauth/{driver}/callback', [OAuthController::class, 'handleCallback'])->name('oauth.callback');
 });
 
-Route::group('/kuisioner',function(){
+Route::prefix('/kuisioner')->group(function(){
     Route::post('alumni',[KuisionerController::class,'kuisionerAlumni']);
 });
