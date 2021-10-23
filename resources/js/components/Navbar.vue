@@ -39,7 +39,7 @@
                   <li class="nav-item">
                     <router-link to="/alumni" :class=" this.$route.path == '/alumni' ?  'nav-link active' : 'nav-link'"   id="home" ><i class="fe fe-home"></i> Home</router-link>
                   </li>
-                  <li class="nav-item dropdown">
+                  <li class="nav-item dropdown" v-if="kuisAlumni == 'no data'">
                     <router-link to="/alumni/kuisioner"  :class=" this.$route.path == '/alumni/kuisioner' ?  'nav-link active' : 'nav-link'"  id="kuisioner" ><i class="fe fe-check-square"></i>Kuisioner</router-link>
                   </li>
                 </ul>
@@ -79,20 +79,23 @@
 
 <script>
 import { mapGetters } from 'vuex'
-
+import axios from 'axios'
 export default {
   components: {
  
   },
 
   data: () => ({
-    appName: window.config.appName
+    appName: window.config.appName,
+    kuisAlumni:null,
   }),
 
   computed: mapGetters({
     user: 'auth/user'
   }),
-
+  mounted(){
+    this.kuisionerAlumni();
+  },
   methods: {
     async logout () {
       // Log out the user.
@@ -100,7 +103,19 @@ export default {
 
       // Redirect to login.
       this.$router.push({ name: 'login' })
-    }
+    },
+    kuisionerAlumni() {
+      if(this.user.role == "alumni"){
+      axios
+        .get("http://127.0.0.1:8000/tracer/kuisioner/alumni/"+this.user.id_user)
+        .then((result) => {
+          this.kuisAlumni = result.data.data.data
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      }
+    },  
   }
 }
 </script>

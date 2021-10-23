@@ -5,7 +5,7 @@
           <div class="feed mt-2">
             <div class="text-justify">
               <div class="row">
-                <div class="col-1">
+                <div class="col-2">
                   <img
                     src="https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
                     alt="user-img"
@@ -18,14 +18,11 @@
                 </div>
                 <div class="ml-3 col-8 pt-2">SMPN 10 TAPUNG</div>
               </div>
-               <table border="1">
-     
-               tasdasd
-             </table>
+               
               <div class="ml-5 text-muted">
               10:12, 27 januari 2021, 
               </div>
-              <div class="mr-5 ml-5">
+              <div class="mr-5 ml-5 text-justify">
                 Salam hormat bagi seluruh alumni, dan juga pengguna alumni STAI
                 Auliaurrasyidin Informasi data dalam tracer alumni ini akan
                 sangat bermanfaat bagi universitas dalam rangka mengevaluasi,

@@ -49,5 +49,5 @@ Route::group(['middleware' => 'guest:api'], function () {
 });
 
 Route::prefix('/kuisioner')->group(function(){
-    Route::post('alumni',[KuisionerController::class,'kuisionerAlumni']);
+    Route::post('alumni',[KuisionerController::class,'kuisioner']);
 });

@@ -1,8 +1,11 @@
 import store from '~/store'
 
 export default (to, from, next) => {
-  if (store.getters['auth/check']) {
-    next({ name: 'home' })
+  const user = store.getters['auth/user']
+  
+  if (user) {
+    if(user.role == 'consumer')
+    next({ name: 'consumer.data' })
   } else {
     next()
   }

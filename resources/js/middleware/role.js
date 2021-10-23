@@ -11,11 +11,11 @@ export default (to, from, next, roles) => {
   const user = store.getters['auth/user']
 
   // Split roles into an array
-  roles = roles.split(',')
+  roles = user.role;
 
   // Check if the user has one of the required roles...
-  if (!roles.includes(user.role)) {
-    next('/unauthorized')
+  if (roles == 'consumer') {
+    next('/alumni')
   }
 
   next()
