@@ -42,12 +42,12 @@
                         </tr>
                         
 
-              <tr v-for="(alumni,index) in alumnies" :key="index">
+              <!-- <tr v-for="(alumni,index) in alumnies" :key="index">
                 <td>
                 <router-link :to="{ name: 'consumer.EmployeeProfile', params: { id: alumni.id_pelajar  }}">    {{alumni.id_pelajar}} </router-link>
                   </td>
                 <td>{{alumni.id_pelajar}}</td>
-              </tr>
+              </tr> -->
                       </tbody>
                     </table>
           </div>

@@ -8,3 +8,7 @@ export const UPDATE_USER = 'UPDATE_USER'
 
 // lang.js
 export const SET_LOCALE = 'SET_LOCALE'
+
+export const FETCH_INSTITUTION = 'FETCH_INSTITUTION'
+export const FETCH_FACULTY = 'FETCH_FACULTY'
+export const FETCH_MAJOR = 'FETCH_MAJOR'

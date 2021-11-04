@@ -73,13 +73,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         
-      $id = '';
-      if($data['role'] == 'consumer'){
+        if($data['role'] == 'consumer'){
+          $id = '';
         $response = Http::asForm()->withHeaders([
             'app-origins'=>"yes",
             'content-type'=>'application/json'
            
-        ])->post('127.0.0.1:8000/consumer/', [
+        ])->post('192.168.100.22:8000/consumer/', [
             'jenis' => 'aaa',
             'nama' => $data['name'],
             'alamat' => $data['alamat'],
@@ -97,7 +97,7 @@ class RegisterController extends Controller
                 'app-origins'=>"yes",
                 'content-type'=>'application/json'
                
-            ])->get('127.0.0.1:8000/consumer/name/'.$data['name'], [
+            ])->get('192.168.100.22:8000/consumer/name/'.$data['name'], [
                 
             ]);
             $id = json_decode($res->getBody()->getContents())->data->data[0]->id;
@@ -116,6 +116,49 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
         
+      }
+      else if($data['role'] == 'alumni'){
+        $id = '';
+        $response = Http::asForm()->withHeaders([
+            'app-origins'=>"yes",
+            'content-type'=>'application/json'
+           
+        ])->post('192.168.100.22:8000/consumer/', [
+            'jenis' => 'aaa',
+            'nama' => $data['name'],
+            'alamat' => $data['alamat'],
+            'provinsi' => $data['provinsi'],
+            'kab_kota' => $data['kota'],
+            'kecamatan' => $data['kecamatan'],
+            'kelurahan' => $data['kelurahan'],
+            'no_telp' => $data['no_telp'],
+        ]);
+            
+        $stream = json_decode($response->getBody());
+        $code = $stream->message->statusCode;
+        if($code == 400){
+            $res =  Http::withHeaders([
+                'app-origins'=>"yes",
+                'content-type'=>'application/json'
+               
+            ])->get('192.168.100.22:8000/consumer/name/'.$data['name'], [
+                
+            ]);
+            $id = json_decode($res->getBody()->getContents())->data->data[0]->id;
+        }
+        elseif ($code == 200) {
+            $id = $stream->message->data[0]->id;
+        }
+        
+        
+
+        return User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'role' => $data['role'],
+            'id_user' => $id,
+            'password' => bcrypt($data['password']),
+        ]);
       }
     }
     protected function registerConsumer(array $data)

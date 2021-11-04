@@ -39,7 +39,8 @@
                   <li class="nav-item">
                     <router-link to="/alumni" :class=" this.$route.path == '/alumni' ?  'nav-link active' : 'nav-link'"   id="home" ><i class="fe fe-home"></i> Home</router-link>
                   </li>
-                  <li class="nav-item dropdown" v-if="kuisAlumni == 'no data'">
+                  <li class="nav-item dropdown" >
+                    <!-- v-if="kuisAlumni == 'no data'" -->
                     <router-link to="/alumni/kuisioner"  :class=" this.$route.path == '/alumni/kuisioner' ?  'nav-link active' : 'nav-link'"  id="kuisioner" ><i class="fe fe-check-square"></i>Kuisioner</router-link>
                   </li>
                 </ul>
@@ -107,7 +108,7 @@ export default {
     kuisionerAlumni() {
       if(this.user.role == "alumni"){
       axios
-        .get("http://127.0.0.1:8000/tracer/kuisioner/alumni/"+this.user.id_user)
+        .get("http://192.168.100.22:8000/tracer/kuisioner/alumni/"+this.user.id_user)
         .then((result) => {
           this.kuisAlumni = result.data.data.data
         })

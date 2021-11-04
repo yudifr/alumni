@@ -505,7 +505,7 @@ export default {
       this.alumni.id_alumni = user.id_user
       // Register the user.
         axios
-        .post("http://127.0.0.1:8000/tracer/kuisioner/alumni",this.alumni)
+        .post("http://192.168.100.22:8000/tracer/kuisioner/alumni",this.alumni)
         .then((result) => {
           console.log(result)
         })

@@ -86,7 +86,7 @@ export default {
         token: data.token,
         remember: this.remember
       })
-
+  
       // Fetch the user.
      const user = await this.$store.dispatch('auth/fetchUser')
 
