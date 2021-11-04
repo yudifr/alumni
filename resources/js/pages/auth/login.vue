@@ -1,54 +1,63 @@
 <template>
   <div class="row">
     <div class="col-lg-8 m-auto">
-      <card :title="$t('login')">
-        <form @submit.prevent="login" @keydown="form.onKeydown($event)">
-          <!-- Email -->
-          <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('email') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }" class="form-control" type="email" name="email">
-              <has-error :form="form" field="email" />
-            </div>
+      
+        
+     
+    </div>
+                                <div class="page page-center">
+                                  <div class="container-tight py-4">
+                                    
+                                    <form class="card card-md" @submit.prevent="login" @keydown="form.onKeydown($event)">
+                                      <div class="card-body">
+                                        <h2 class="card-title text-center mb-4">Login to your account</h2>
+                                        <div class="mb-3">
+                                          <label class="form-label">Email address</label>
+                                          <input type="email" name="email" class="form-control" placeholder="Enter email" v-model="form.email" :class="{ 'is-invalid': form.errors.has('email') }">
+                                             <has-error :form="form" field="email" />
+
+                                        </div>
+                                        <div class="mb-2">
+                                          <label class="form-label">
+                                            Password
+                                            
+                                          </label>
+                                          <div class="input-group input-group-flat">
+                                            <input type="password" class="form-control" placeholder="Password" v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }">
+                                            <has-error :form="form" field="password" />
+                                            
+                                          </div>
+                                        </div>
+                                        <div class="mb-2">
+                                          <label class="form-check">
+                                            <input type="checkbox" v-model="remember" name="remember" class="form-check-input">
+                                            <span class="form-check-label">Remember me on this device</span>
+                                          </label>
+                                        </div>
+                                        <div class="form-footer">
+                                          <div class="form-group row">
+            
           </div>
 
-          <!-- Password -->
           <div class="form-group row">
-            <label class="col-md-3 col-form-label text-md-right">{{ $t('password') }}</label>
-            <div class="col-md-7">
-              <input v-model="form.password" :class="{ 'is-invalid': form.errors.has('password') }" class="form-control" type="password" name="password">
-              <has-error :form="form" field="password" />
-            </div>
-          </div>
-
-          <!-- Remember Me -->
-          <div class="form-group row">
-            <div class="col-md-3" />
-            <div class="col-md-7 d-flex">
-              <checkbox v-model="remember" name="remember">
-                {{ $t('remember_me') }}
-              </checkbox>
-
-              <router-link :to="{ name: 'password.request' }" class="small ml-auto my-auto">
-                {{ $t('forgot_password') }}
-              </router-link>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="col-md-7 offset-md-3 d-flex">
+            <div class="">
               <!-- Submit Button -->
               <v-button :loading="form.busy">
                 {{ $t('login') }}
               </v-button>
 
-              <!-- GitHub Login Button -->
-              <login-with-github />
+           
             </div>
           </div>
-        </form>
-      </card>
-    </div>
+                                        </div>
+                                      </div>
+                                      
+                                    </form>
+                                    <div class="text-center text-muted mt-3">
+                                      Don't have account yet? <router-link :to="{ name: 'register' }"> Sign up</router-link>
+                                    </div>
+                                  </div>
+                                </div>
   </div>
 </template>
 
